@@ -94,9 +94,15 @@ moonlightSources[args.star]=(sourceEl, sourceAz, sourceRA, sourceDEC, degFromMoo
 
 # for first column
 columnTitle = "Source"
+columnLength = ceil(float(len(args.star))/8.)*8.
+columnTabs = int( ceil( (columnLength-len(columnTitle))/8.) )
 print("")
+#sys.stdout.write( columnTitle )
 print(columnTitle),
-print('\t'),
+for x in range(0, columnTabs):
+    print('\t'),
+
+
 col_string = "Elevation\tAzimuth\t\tRA\t\tDec\t\tMoonDist"
 
 print(col_string)
@@ -108,8 +114,13 @@ ra = sourceRA  # ra
 dec = sourceDEC  # dec
 dist = degFromMoon
 
+
+length = len(name)
+numTabs = int( ceil( (columnLength-length-1)/8. ) )
 print(name),
-print("\t"),
+for i in range (0, numTabs):
+    print("\t"),
+
 row_string = "%0.2f\t\t%0.2f\t\t%s\t%s\t%0.2f" %(el, az, ra, dec, dist)
 print(row_string)
 
