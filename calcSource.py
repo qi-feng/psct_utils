@@ -136,7 +136,7 @@ def calc_source(date, star, wobble_offset=0, wob_az_el=False):
         print("-------------------------------------------------------------------------------------------------")
 
     if wobble_offset > 0 and not wob_az_el:  # this is the real wobble in RA Dec
-            print("Calculate wobble with offset IN AZ and EL by {} deg...".format(wobble_offset))
+            print("Calculate wobble with offset IN RA and Dec by {} deg...".format(wobble_offset))
             print("-------------------------------------------------------------------------------------------------")
             columnTitle = "Source"
             columnLength = ceil(float(len("{}-{}N".format(star, wobble_offset))) / 8.) * 8.
