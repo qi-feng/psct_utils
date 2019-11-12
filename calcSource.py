@@ -46,9 +46,10 @@ def calc_source(date, star, wobble_offset=0, wob_az_el=False):
                columnTitle="Source")
 
     if wobble_offset > 0 and wob_az_el: # this is only useful for optical alignment stuff
-        print("Calculate wobble with offset {} deg...".format(wobble_offset))
+        print("\033[0mCalculate wobble \033[0;31m* IN AZ and EL * \033[0mwith offset {} deg...".format(wobble_offset))
+        print("\033[0;31mThis normally shouldn't be used. ")
         columnTitle = "Source"
-        print("-------------------------------------------------------------------------------------------------")
+        print("\033[0m-------------------------------------------------------------------------------------------------")
         columnLength = ceil(float(len("{}+EL{}deg".format(star, wobble_offset))) / 8.) * 8.
         columnTabs = int(ceil((columnLength - len(columnTitle)) / 8.))
         print(
@@ -205,7 +206,7 @@ def calc_source(date, star, wobble_offset=0, wob_az_el=False):
 def calc_from_ra_dec(veritas, sourceRA_rad, sourceDec_rad, sourceEpoch = 2000):
 
     # makes sure same epoch is used
-    veritas.epoch = float(sourceEpoch)
+    #veritas.epoch = float(sourceEpoch)
 
     # Define ehpem object for source, to get elevation
     sourceObj = ephem.FixedBody()
